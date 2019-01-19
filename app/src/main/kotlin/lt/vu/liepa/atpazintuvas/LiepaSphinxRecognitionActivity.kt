@@ -128,6 +128,7 @@ class LiepaSphinxRecognitionActivity : AppCompatActivity() {
              */
             override fun onResult(hypothesis: Hypothesis?) {
                 if (hypothesis == null || hypothesis.hypstr == null || hypothesis.hypstr.isEmpty()) {
+                    restartRecording(sphinxRecognizer)
                     return
                 }
                 val hypstr = hypothesis.hypstr
