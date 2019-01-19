@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Atpažintuvo Variklis</string>
+    <string name="msg_greeting_content">Sveiki atvykę! \n Tarkite nurodytus žodžius...</string>
+    <string name="msg_phrases_for_recognition">Sakyk pvz:\n Vilnius,\n Kaunas,\n Utena,\n Biržai</string>
+    <string name="msg_liepa_started">Liepa pasiruošusi</string>
+    <string name="msg_liepa_stoped">Liepa atpažintuvas atjungas</string>
+</resources>
