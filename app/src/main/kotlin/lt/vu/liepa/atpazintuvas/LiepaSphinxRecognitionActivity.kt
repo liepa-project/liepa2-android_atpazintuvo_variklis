@@ -72,14 +72,13 @@ class LiepaSphinxRecognitionActivity : AppCompatActivity() {
         Log.d(TAG, "[onResume]")
         if (checkPermissionForRecognition()) {
             Log.d(TAG, "[onResume]Granted all permission")
-            uiScope.async {
+            uiScope.launch {
+                Log.d(TAG, "[uiScope.async]Initialize")
                 val assets = Assets(baseContext)
                 val assetDir = assets.syncAssets()
                 sphinxRecognizer = setupRecognizer(assetDir)
                 longToast(resources.getString(R.string.msg_liepa_started))
                 restartRecording(sphinxRecognizer)
-
-
             }
         }
     }
@@ -117,6 +116,7 @@ class LiepaSphinxRecognitionActivity : AppCompatActivity() {
      * Initialise recognizer and set acoustic model, dictionary and grammar(as language model)
      */
     private fun setupRecognizer(assetsDir: File): SpeechRecognizer? {
+        Log.d(TAG, "[setupRecognizer]")
         val aRecognizer = SpeechRecognizerSetup.defaultSetup()
             .setAcousticModel(File(assetsDir, "models/FZ1.3/acoustic"))
             .setDictionary(File(assetsDir, "models/FZ1.3/language/adr_frazės.dict"))
@@ -188,10 +188,11 @@ class LiepaSphinxRecognitionActivity : AppCompatActivity() {
      * Stops and start recognizer when app is starting or recognizer recognized phrase (onResult).
      */
     private fun restartRecording(recognizer: SpeechRecognizer?) {
+        Log.d(TAG, "[restartRecording]")
         if (recognizer == null) return
         //after this stop RecognitionListener#onResult will be invoked
         recognizer.stop()
-        uiScope.async {
+        uiScope.launch {
             //give 3 seconds to read previous message
             delay(3000)
             //remind what can be said
@@ -208,8 +209,6 @@ class LiepaSphinxRecognitionActivity : AppCompatActivity() {
      */
     private fun shutdownRecognition() {
         Log.i(TAG, "[shutdownRecognition]")
-
-        viewModelJob.cancel()
         sphinxRecognizer?.let {
             it.cancel()
             it.shutdown()
