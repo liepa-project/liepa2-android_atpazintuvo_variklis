@@ -31,6 +31,6 @@ sphinxmodels(Liepa Recognition Models: acoustic model, sample recognition gramma
 
 Please, find more info here:
 
-* https://github.com/tryolabs/TLSphinx
+* https://github.com/tryolabs/TLSphinx (https://tryolabs.com/blog/2015/06/15/tlsphinx-automatic-speech-recognition-asr-in-swift/)
 * https://www.politepix.com/openears/
 * https://github.com/cmusphinx/pocketsphinx-ios-demo
