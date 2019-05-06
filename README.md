@@ -7,6 +7,8 @@ This demonstration is based on https://github.com/cmusphinx/pocketsphinx-android
 ## Directory stucture
 
 * sphinxmodels - Liepa Recognition Models: acoustic model, sample recognition grammar and dictionary for it. **Those files must be changed** based on problem that's needs to be resolve.
+    * accoustic model: [dir](https://github.com/liepa-project/android_atpazintuvo_variklis/tree/master/sphinxmodels/src/main/assets/sync/models/FZ1.3/acoustic)
+    * language model: [grammar file](https://github.com/liepa-project/android_atpazintuvo_variklis/blob/master/sphinxmodels/src/main/assets/sync/models/FZ1.3/language/adr_fraz%C4%97s.gram) and [dictionary file](https://github.com/liepa-project/android_atpazintuvo_variklis/blob/master/sphinxmodels/src/main/assets/sync/models/FZ1.3/language/adr_fraz%C4%97s.dict)
 * aars - pocketshphinx recognition binaries and Java API wrapper. 
 * apps - main android class that shows how to use recognition engine.
 
@@ -30,7 +32,9 @@ Review: [LiepaSphinxRecognitionActivity.kt](https://github.com/liepa-project/and
 sphinxmodels(Liepa Recognition Models: acoustic model, sample recognition grammar and dictionary for it) **should** be used in same way as for android, but API calls and usages might be different. 
 
 Please, find more info here:
-
+* Primary(official for pocketshpinx) tutorial:
+    * https://www.politepix.com/openears/tutorial/
+        * Acoustic mode should change *AcousticModelEnglish.bundle* to one that is shared above.
+        * For language model might be neeed tweeks for OELanguageModelGenerator.
 * https://github.com/tryolabs/TLSphinx (https://tryolabs.com/blog/2015/06/15/tlsphinx-automatic-speech-recognition-asr-in-swift/)
-* https://www.politepix.com/openears/
 * https://github.com/cmusphinx/pocketsphinx-ios-demo
