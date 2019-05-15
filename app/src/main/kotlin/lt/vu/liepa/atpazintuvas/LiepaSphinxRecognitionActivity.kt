@@ -46,6 +46,11 @@ import java.io.File
 private const val PERMISSIONS_REQUEST_RECORD_AUDIO = 1
 private const val TAG = "LIEPA_SPHINX"
 private const val GRAMMAR = "ADDRESS_PHRASES"
+//private const val ACOUSTIC_ID= "FZ1.3"
+//private const val ACOUSTIC_ID= "L2-356ZR01.3_37cont"
+private const val ACOUSTIC_ID= "L2-356ZR01.3_37semi"
+private const val ACOUSTIC_MODEL_PATH = "models/$ACOUSTIC_ID/acoustic"
+private const val DICTIONARY_FILE = "models/$ACOUSTIC_ID/language/adr_frazės.dict"
 
 /**
  * Main activity class to load recognition engine and respond on recognition events.
@@ -118,8 +123,8 @@ class LiepaSphinxRecognitionActivity : AppCompatActivity() {
     private fun setupRecognizer(assetsDir: File): SpeechRecognizer? {
         Log.d(TAG, "[setupRecognizer]")
         val aRecognizer = SpeechRecognizerSetup.defaultSetup()
-            .setAcousticModel(File(assetsDir, "models/FZ1.3/acoustic"))
-            .setDictionary(File(assetsDir, "models/FZ1.3/language/adr_frazės.dict"))
+            .setAcousticModel(File(assetsDir, ACOUSTIC_MODEL_PATH))
+            .setDictionary(File(assetsDir, DICTIONARY_FILE))
             .recognizer
 
         val recognitionListenerImpl = object : RecognitionListener {
