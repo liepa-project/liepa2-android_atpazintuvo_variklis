@@ -1,5 +1,6 @@
 *.md5
 *.iml
+.idea
 .gradle
 gradle
 assets.lst
