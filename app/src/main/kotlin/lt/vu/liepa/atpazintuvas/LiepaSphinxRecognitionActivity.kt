@@ -31,9 +31,9 @@ package lt.vu.liepa.atpazintuvas
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.WindowManager
 import edu.cmu.pocketsphinx.*
@@ -47,8 +47,8 @@ private const val PERMISSIONS_REQUEST_RECORD_AUDIO = 1
 private const val TAG = "LIEPA_SPHINX"
 private const val GRAMMAR = "ADDRESS_PHRASES"
 //private const val ACOUSTIC_ID= "FZ1.3"
-//private const val ACOUSTIC_ID= "L2-356ZR01.3_37cont"
-private const val ACOUSTIC_ID= "L2_g4_ptm-20191110"
+//private const val ACOUSTIC_ID= "L2_g5_ptm-20190723"
+private const val ACOUSTIC_ID= "L2_g5_ptm-20201016"
 private const val ACOUSTIC_MODEL_PATH = "models/$ACOUSTIC_ID/acoustic"
 private const val DICTIONARY_FILE = "models/$ACOUSTIC_ID/language/adr_frazės.dict"
 
@@ -133,6 +133,7 @@ class LiepaSphinxRecognitionActivity : AppCompatActivity() {
              */
             override fun onResult(hypothesis: Hypothesis?) {
                 if (hypothesis == null || hypothesis.hypstr == null || hypothesis.hypstr.isEmpty()) {
+                    Log.d(TAG, "[onResult] hypstr:????")
                     restartRecording(sphinxRecognizer)
                     return
                 }
@@ -146,6 +147,7 @@ class LiepaSphinxRecognitionActivity : AppCompatActivity() {
              */
             override fun onPartialResult(hypothesis: Hypothesis?) {
                 if (hypothesis == null || hypothesis.hypstr == null || hypothesis.hypstr.isEmpty()) {
+                    //Log.d(TAG, "[onPartialResult] hypstr:????????")
                     return
                 }
                 val hypstr = hypothesis.hypstr
