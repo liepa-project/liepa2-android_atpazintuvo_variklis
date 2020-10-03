@@ -7,4 +7,4 @@
 -agc none
 -cmn current
 -varnorm no
--remove_silence no
+-remove_silence yes
