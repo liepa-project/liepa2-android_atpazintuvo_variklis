@@ -1,0 +1,10 @@
+-lowerf 100
+-upperf 7000
+-nfilt 40
+-transform dct
+-lifter 22
+-feat s2_4x
+-agc none
+-cmn current
+-varnorm no
+-remove_silence yes 
