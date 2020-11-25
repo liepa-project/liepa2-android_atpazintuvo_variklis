@@ -48,7 +48,7 @@ private const val TAG = "LIEPA_SPHINX"
 private const val GRAMMAR = "ADDRESS_PHRASES"
 //private const val ACOUSTIC_ID= "FZ1.3"
 //private const val ACOUSTIC_ID= "L2_g5_ptm-20190723"
-private const val ACOUSTIC_ID= "L2_g5_ptm-20201015"
+private const val ACOUSTIC_ID= "L2_g5_ptm-20201125"
 private const val ACOUSTIC_MODEL_PATH = "models/$ACOUSTIC_ID/acoustic"
 private const val DICTIONARY_FILE = "models/$ACOUSTIC_ID/language/adr_frazės.dict"
 
