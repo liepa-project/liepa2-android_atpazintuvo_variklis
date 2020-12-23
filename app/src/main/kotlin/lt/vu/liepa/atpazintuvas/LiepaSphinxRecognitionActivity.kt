@@ -184,7 +184,7 @@ class LiepaSphinxRecognitionActivity : AppCompatActivity() {
 
         aRecognizer?.let {
             it.addListener(recognitionListenerImpl)
-            val adrPhraseGrammar = File(assetsDir, "models/FZ1.3/language/adr_frazės.gram")
+            val adrPhraseGrammar = File(assetsDir, "models/$ACOUSTIC_ID/language/adr_frazės.gram")
             it.addGrammarSearch(GRAMMAR, adrPhraseGrammar)
         }
         return aRecognizer
